@@ -64,7 +64,7 @@ if(isset($_POST['register_button'])){
     <title>Welcome to your social feed!</title>
 </head>
 <body>
-    <form action = "register.php">
+    <form action = "register.php" method="POST">
        <input type="text" name="reg_fname" placeholder="First Name" required>
        <br>
        <input type="text" name="reg_lname" placeholder="Last Name" required>
