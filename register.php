@@ -44,7 +44,23 @@ if(isset($_POST['register_button'])){
         
         $date =  date("Y-m-d");// Gets the current date
         if($em == $em2){
+                if(filter_var($em,FILTER_VALIDATE_EMAIL)){
+                    $em = filter_var($em, FILTER_VALIDATE_EMAIL);
 
+                    //check if email already exists
+                    $e_check = mysqli_query ($con, "SELECT email FROM users WHERE email = '$em'");
+                   
+                    //Count the number of rows returned
+                    $num_rows = mysqli_num_rows($e_check);
+
+                    if($num_rows > 0 ){
+                        echo "Email already in use";
+                    }
+
+                }
+                else{
+                    echo "Invalid format";
+                }
         }
         else{
             echo "Emails do not match";
