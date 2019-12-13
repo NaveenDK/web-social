@@ -17,7 +17,10 @@ $password = "";
 $password2 = "";
 $date = "";
 $error_array = array();
-if(isset($_POST['register_button'])){
+
+if(isset($_POST['register_button']))
+
+{
     //Registration form values
     //Fname
     $fname = strip_tags($_POST['reg_fname']); //take away strip tags incase an user submits html , basic security measure
@@ -114,7 +117,21 @@ if(isset($_POST['register_button'])){
             $username = $username."_".$i;
             $check_username_query = mysqli_query($con,"SELECT username FROM users WHERE username = '$username'");
         }
+    
+    //profile picture assignment
+    $rand = rand(1,2); //Random number  between 1 and 2
+
+    if($rand == 1)
+           $profile_pic = "assets/images/profile_pics/defaults/user_black.png";
+    else if ($rand == 2)
+            $profile_pic = "assets/images/profile_pics/defaults/user_blue.png";
+
+    $query = mysqli_query($con,"INSERT INTO users VALUES('','$fname','$lname','$username','$em','$password','$date','$profile_pic','0','0','no',',')");
+
+
     }
+
+
 
 }
 
