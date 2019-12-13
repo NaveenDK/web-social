@@ -101,6 +101,21 @@ if(isset($_POST['register_button'])){
        
     }
 
+    if(empty($error_array)){
+        $password = md5($password);//encrypt password before sending it to database
+
+        $username = strtolower($fname."_".$lname); //Generate usernam by concatenating first name and last name
+        $check_username_query= mysqli_query($con,"SELECT username FROM users WHERE username='$username'");
+
+        $i = 0;
+        //if username exists add number to username
+        while(mysqli_num_rows($check_username_query) != 0){
+            $i++; //Add 1 to i
+            $username = $username."_".$i;
+            $check_username_query = mysqli_query($con,"SELECT username FROM users WHERE username = '$username'");
+        }
+    }
+
 }
 
 ?>
@@ -153,6 +168,9 @@ if(isset($_POST['register_button'])){
       else if(in_array("Your password can only contain english characters or numbers<br>",$error_array))  echo "Your password can only contain english characters or numbers<br>";
        else if(in_array("Your password must be between 5 and 30 characters<br>",$error_array)) echo "Your password must be between 5 and 30 characters<br>";?>
        <input type="password" name="reg_password2" placeholder="Confirm Password" required>
+      
+      
+      
        <br>
        <input type="submit" name="register_button" value="Register">
     </form>
