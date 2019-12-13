@@ -2,7 +2,7 @@
 ob_start();//Turns on output buffering
 session_start();
 
-timezone = date_default_timezone_set("Pacific/Auckland");
+$timezone = date_default_timezone_set("Pacific/Auckland");
 
 $con = mysqli_connect("localhost","root","", "web-social");
 

@@ -1,12 +1,9 @@
 <?php
-$con = mysqli_connect("localhost","root","", "web-social");
 
-if (mysqli_connect_errno()){
-    echo "Failed to connect: ". mysqli_connect_errno();
+require 'config/config.php';
+require 'includes/form_handlers/register_handler.php';
+require 'includes/form_handlers/login_handler.php';
 
-}
-
-$query = mysqli_query($con, "INSERT INTO test VALUES('','Naveen')");
 ?>
 
 <!DOCTYPE html>
