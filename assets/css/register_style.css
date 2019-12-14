@@ -8,6 +8,11 @@
     src: url('../fonts/Bellota-BoldItalic.otf');
 }
 
+a {
+    text-decoration: none;
+    color: #3498db;
+}
+
 form {
     text-align: center;
 }
@@ -70,6 +75,11 @@ input[type="submit"] {
     margin: 5px 0 10px 0;
     padding: 5px 10px 5px 10px;
     color: #fff;
+    font-family: 'Bellota-BoldItalic', sans-serif;
+    margin-top: 0;
+    margin-bottom: 0;
+    color: #2c6c96;
+    text-shadow: #000 0.5px 0.5px 0px;
 }
 
 input[type="text"],
@@ -82,10 +92,15 @@ input[type="password"] {
     margin-bottom: 10px;
     padding-left: 5px;
 
+
 }
 
-input[type="text"],
-input[type="email"],
+input[type="text"]:hover,
+input[type="email"]:hover,
 input[type="password"]:hover {
     border-color: #3498db;
+}
+
+.second {
+    display: none;
 }
