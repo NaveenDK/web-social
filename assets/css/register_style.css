@@ -101,6 +101,6 @@ input[type="password"]:hover {
     border-color: #3498db;
 }
 
-.second {
+#second {
     display: none;
 }

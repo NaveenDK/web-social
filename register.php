@@ -19,9 +19,22 @@ require 'includes/form_handlers/login_handler.php';
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Welcome to your social feed!</title>
     <link rel="stylesheet" type="text/css" href="assets/css/register_style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="assets/js/register.js"></script>
 </head>
 <body>
-
+<?php
+  if(isset($_POST['register_button'])){
+      echo '
+      <script>
+       $(document).ready(function(){
+         $("#first").hide();
+         $("#second").show();
+    });
+      </script>
+      ';
+}
+?>
 <div class="wrapper">
 
   
@@ -32,7 +45,7 @@ require 'includes/form_handlers/login_handler.php';
      Login or sign up below!
   </div>
 
-  <div class="first">
+  <div id="first">
             <form action="register.php" method="POST">
                     <input type="email" name ="log_email" placeholder="Email Address" value="<?php
                 if(isset($_SESSION['log_email'])){
@@ -54,7 +67,7 @@ require 'includes/form_handlers/login_handler.php';
                 
 
 
-<div class="second">
+<div id="second">
                 <form action = "register.php" method="POST">
                 <input type="text" name="reg_fname" placeholder="First Name" value="<?php
                 if(isset($_SESSION['reg_fname'])){
