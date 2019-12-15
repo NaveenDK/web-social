@@ -1,6 +1,7 @@
 <?php
 
 require 'config/config.php';
+
 require 'includes/form_handlers/register_handler.php';
 require 'includes/form_handlers/login_handler.php';
 
@@ -20,9 +21,12 @@ require 'includes/form_handlers/login_handler.php';
     <title>Welcome to your social feed!</title>
     <link rel="stylesheet" type="text/css" href="assets/css/register_style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-    <script src="assets/js/register.js"></script>
+
+<script src="assets/js/register.js"></script>
+   
 </head>
 <body>
+
 <?php
   if(isset($_POST['register_button'])){
       echo '
@@ -34,7 +38,19 @@ require 'includes/form_handlers/login_handler.php';
       </script>
       ';
 }
+
+if(isset($_POST['login_button'])){
+    echo '
+    <script>
+     $(document).ready(function(){
+       $("#second").hide();
+       $("#first").show();
+  });
+    </script>
+    ';
+}
 ?>
+
 <div class="wrapper">
 
   
@@ -114,7 +130,7 @@ require 'includes/form_handlers/login_handler.php';
                 <input type="submit" name="register_button" value="Register"><br>
                 
                 <?php if(in_array("<span style='color:#14c800;'> You're all set ! Go ahead and login!</span><br>",$error_array)) echo "<span style='color:#14c800;'> You're all set ! Go ahead and login!</span><br>";?>
-                <a href="#" id="signin" class="signin">Already have an account? Sign in here! </a>
+                <a href="#" id="signin"class="signin" >Already have an account? Sign in here! </a>
                 </form>
             </div>
         </div>
