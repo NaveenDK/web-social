@@ -7,6 +7,8 @@
     margin: 0 0 10px 0;
     display: inline-flex;
     padding-top: 20px;
+    position: fixed;
+    z-index: 10;
 }
 
 .logo {
@@ -44,3 +46,37 @@ i.fa:hover {
     color: white;
     ;
 }
+
+.wrapper {
+    margin: 0 auto;
+    top: 110px;
+    position: relative;
+    padding: 0 10px;
+    width: 75%;
+    min-width: 950px;
+}
+
+.column {
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #D3D3D3;
+    border-radius: 5px;
+    box-shadow: 2px 2px 1px #d3d3d3;
+    z-index: -1;
+}
+
+.user_details {
+    width: 250px;
+    float: left;
+    margin-bottom: 20px;
+}
+
+.user_details_left_right {
+    width: 125px;
+    display: inline-block;
+    position: absolute;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.user_details img {}
