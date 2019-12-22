@@ -12,13 +12,21 @@ class Post{
     public function submitPost($body,$user_to){
         $body = strip_tags($body);
         $body = mysqli_real_escape_string($this->con,$body);
+        
+        $body = str_replace('\r\n', '\n', $body);
+        $body = nl2br($body);
+
+        
         $check_empty = preg_replace('/\s+/','',$body); //Delete all spaces
+
+
 
         if($check_empty =! 0){
             //current data and time
             $date_added = date("Y-m-d H-i-s");
             //Get username
             $added_by = $this->user_obj->getUsername();
+
 
             //If user is on own profie, user_to is 'none'
             if($user_to = $added_by){
