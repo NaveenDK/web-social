@@ -41,7 +41,7 @@ else {
             <a href="index.php"> <img height="50"src="assets/images/logo.png"/></a>
     </div>
     <nav>
-        <a href="#" > <?php  
+        <a href="<?php echo $userLoggedIn; ?>" > <?php  
                     echo  $user['first_name'];
                  ?></a>
       <a href="index.php"><i class="fa fa-home"></i></a>
