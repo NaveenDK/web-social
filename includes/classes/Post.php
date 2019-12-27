@@ -46,13 +46,15 @@ class Post
                  $update_query = mysqli_query($this->con,"UPDATE users SET num_posts = '$num_posts' WHERE username='$added_by'");                
         }
     }
+
     public function loadPostsFriends()
     { //when you go on to the dashboard , you will see the news feed and this is the function that would pull up all the posts from the posts table on the database
    // echo "test exec";
         $str = "";
-    $data  = mysqli_query($this->con,"SELECT * FROM posts WHERE deleted='no' ORDER BY id DESC"); // This is the SQL query that is responsbile for this
-echo $str;
-    while($row = mysqli_fetch_array($data)){
+        $data  = mysqli_query($this->con,"SELECT * FROM posts WHERE deleted='no' ORDER BY id DESC"); // This is the SQL query that is responsbile for this
+      //  echo $str;
+    
+while($row = mysqli_fetch_array($data)){
        
         $id = $row['id'];
         $body = $row['body'];
@@ -84,8 +86,7 @@ echo $str;
         $user_row = mysqli_fetch_array($user_details_query);
         $first_name = $user_row['first_name']; 
         $last_name = $user_row['last_name'];
-        echo $first_name;
-        echo $last_name;
+        $profile_pic = $user_row['profile_pic'];
         //Time Frame
         $date_time_now = date("Y-m-d H:i:s");
         $start_date = new DateTime($date_time); //Time of post
@@ -166,12 +167,12 @@ echo $str;
                 $time_message  = $interval->s. " seconds ago";
             }
         }
-        $str.=  "<div class ='status_post'>
-                 <div class ='post_profile_pic'>
-                     <img src='$profile_pic' width = '50'>
-                 </div>
+        $str.="<div class ='status_post'>
+                    <div class ='post_profile_pic'>
+                        <img src='$profile_pic' width = '50'>
+                    </div>
 
-                <div class = 'posted_by' style='color:#acacac;'>
+            <div class = 'posted_by' style='color:#acacac;'>
                      <a href='$added_by'> $first_name $last_name </a> $user_to &nbsp;&nbsp;&nbsp;&nbsp;
                          time_message
                      </a>
@@ -180,7 +181,7 @@ echo $str;
                      $body
                     <br>
                 </div>
-                 </div>";
+            </div>";
       
         }//closing while loop
      echo $str;
