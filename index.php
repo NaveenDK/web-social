@@ -4,7 +4,7 @@ include("includes/classes/User.php");
 include("includes/classes/Post.php");
 
 if(isset($_POST['post'])){
-    $post = new POST ($con,$userLoggedIn);
+    $post = new POST($con,$userLoggedIn);
     $post->submitPost($_POST['post_text'],'none');
     header("Location:index.php");   
 }
@@ -28,10 +28,10 @@ if(isset($_POST['post'])){
     </form>
 
 <?php
-    $user_obj = new User($con, $userLoggedIn);
-    echo $user_obj->getFirstAndLastName();
-  //  echo $user_obj->getFirstAndLastName2();
-    
+   
+    $post = new Post($con,$userLoggedIn);
+
+    $post->loadPostsFriends(); 
       
 ?>
 

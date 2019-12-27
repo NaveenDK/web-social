@@ -10,4 +10,7 @@ if (mysqli_connect_errno()){
     echo "Failed to connect: ". mysqli_connect_errno();
 
 }
+
+ini_set('display_errors',1);
+error_reporting(E_ALL); 
 ?>
