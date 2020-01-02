@@ -47,51 +47,80 @@ class Post
         }
     }
 
-    public function loadPostsFriends()
+    public function loadPostsFriends($data,$limit)
     { //when you go on to the dashboard , you will see the news feed and this is the function that would pull up all the posts from the posts table on the database
    // echo "test exec";
+      
+        $page  = $data['page'];
+        $userLoggedIn = $this->user_obj->getUsername();
+        
+        if($page == 1)
+            $start = 0;
+         else   
+            $start = ($page - 1) *$limit;
+
+        
+
         $str = "";
-        $data  = mysqli_query($this->con,"SELECT * FROM posts WHERE deleted='no' ORDER BY id DESC"); // This is the SQL query that is responsbile for this
+        $data_query  = mysqli_query($this->con,"SELECT * FROM posts WHERE deleted='no' ORDER BY id DESC"); // This is the SQL query that is responsbile for this
       //  echo $str;
     
-while($row = mysqli_fetch_array($data)){
-       
-        $id = $row['id'];
-        $body = $row['body'];
-        $added_by = $row['added_by'];
-        $date_time = $row['date_added'];
-        //echo "posts ".$body;
-//echo "number ".$id;
-        //Prepare userto string so it can be included even if not posted to a user
-           if($row['user_to'] == "none"){
-            $user_to = "";
+        
 
-            }
-           else{
-            $user_to_obj = new User($this->con,$row['user_to']);
-            $user_to_name = $user_to_obj->getFirstAndLastName();
-            $user_to =  "to <a href='".$row['user_to']."'> ".$user_to_name."</a>";
-          }//closing if(row)
+       if(mysqli_num_rows($data_query)>0 )
+       {
+        $num_iterations = 0; // Number of results checked (not neccessarily posted)
+        $count = 1;
+
+        while($row = mysqli_fetch_array($data_query)){
+       
+                $id = $row['id'];
+                $body = $row['body'];
+                $added_by = $row['added_by'];
+                $date_time = $row['date_added'];
+                //echo "posts ".$body;
+        //echo "number ".$id;
+                //Prepare userto string so it can be included even if not posted to a user
+                if($row['user_to'] == "none"){
+                    $user_to = "";
+
+                    }
+                else{
+                    $user_to_obj = new User($this->con,$row['user_to']);
+                    $user_to_name = $user_to_obj->getFirstAndLastName();
+                    $user_to =  "to <a href='".$row['user_to']."'> ".$user_to_name."</a>";
+                }//closing if(row)
 
         //Check if user who posted has its account closed
-        $added_by_obj = new User($this->con,$added_by);
-        
-        if($added_by_obj ->isClosed()){
-            continue; //when we hit continue we basically say 'lets go to the next iteration' of the while loop
-        }
-        
-        $user_details_query = mysqli_query($this->con,
-        "SELECT first_name, last_name, profile_pic FROM users WHERE username='$added_by'");
+                $added_by_obj = new User($this->con,$added_by);
+                
+                if($added_by_obj ->isClosed()){
+                    continue; //when we hit continue we basically say 'lets go to the next iteration' of the while loop
+                }
+                
+                if($num_iterations++ < $start)
+                    continue;
 
-        $user_row = mysqli_fetch_array($user_details_query);
-        $first_name = $user_row['first_name']; 
-        $last_name = $user_row['last_name'];
-        $profile_pic = $user_row['profile_pic'];
-        //Time Frame
-        $date_time_now = date("Y-m-d H:i:s");
-        $start_date = new DateTime($date_time); //Time of post
-        $end_date = new DateTime($date_time_now);//Current time
-        $interval = $start_date->diff($end_date); //Difference between dates
+                //Once 10 posts have been loaded, break
+                if($count > $limit){
+                break;
+                }
+                else{
+                     $count ++;
+                }
+
+            $user_details_query = mysqli_query($this->con,
+            "SELECT first_name, last_name, profile_pic FROM users WHERE username='$added_by'");
+
+                    $user_row = mysqli_fetch_array($user_details_query);
+                    $first_name = $user_row['first_name']; 
+                    $last_name = $user_row['last_name'];
+                    $profile_pic = $user_row['profile_pic'];
+                    //Time Frame
+                    $date_time_now = date("Y-m-d H:i:s");
+                    $start_date = new DateTime($date_time); //Time of post
+                    $end_date = new DateTime($date_time_now);//Current time
+                    $interval = $start_date->diff($end_date); //Difference between dates
 
         if($interval->y >=1)
         {
@@ -174,16 +203,24 @@ while($row = mysqli_fetch_array($data)){
 
             <div class = 'posted_by' style='color:#acacac;'>
                      <a href='$added_by'> $first_name $last_name </a> $user_to &nbsp;&nbsp;&nbsp;&nbsp;
-                         time_message
+                         $time_message
                      </a>
                  </div>
                  <div id='post_body'>
                      $body
                     <br>
                 </div>
-            </div>";
+            </div>
+            <hr>";
       
         }//closing while loop
+        if($count > $limit)
+           $str .= "<input type='hidden' class='nextPage' value='".($page +1)."'>
+           <input type='hidden' class='noMorePosts' value='false'>";
+        else    
+            $str .= "<input type='hidden' class='noMorePosts' value='true'><p style='text-align:centre;'>No more posts to show!
+            </p>";
+    }
      echo $str;
     }//closing loadPostsFriends() function
 
