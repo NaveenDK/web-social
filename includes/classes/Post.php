@@ -97,6 +97,13 @@ class Post
                 if($added_by_obj ->isClosed()){
                     continue; //when we hit continue we basically say 'lets go to the next iteration' of the while loop
                 }
+
+               
+
+                $user_logged_obj = new User($this->con,$userLoggedIn);
+                if($user_logged_obj -> isFriend($added_by)){
+
+               
                 
                 if($num_iterations++ < $start)
                     continue;
@@ -212,7 +219,7 @@ class Post
                 </div>
             </div>
             <hr>";
-      
+            }//closing if 
         }//closing while loop
         if($count > $limit)
            $str .= "<input type='hidden' class='nextPage' value='".($page +1)."'>
