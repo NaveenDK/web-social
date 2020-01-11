@@ -45,7 +45,8 @@
     if(isset($_GET['post_id'])) {
         $post_id = $_GET['post_id'];
     }
-
+  echo "This is the post id = ". $post_id;
+  echo "<br>";
     $user_query = mysqli_query($con, "SELECT added_by,user_to FROM posts WHERE id ='$post_id'");
     $row = mysqli_fetch_array($user_query);
 
@@ -62,9 +63,9 @@
 
 ?>
 
-<form action="comment_frame.php?post_id = <?php echo $post_id ?>" id="comment_form" name= "postComment<?php echo $post_id; ?>" method="POST">
-    <textarea name="post_body" id="" cols="30" rows="10"></textarea>
-    <input type="submit" name="postComment<?php echo $post_id; ?>" value = "Post">
+<form action="comment_frame.php?post_id=<?php echo $post_id; ?>" id="comment_form" name= "postComment<?php echo $post_id; ?>" method="POST">
+    <textarea name="post_body"cols="30" rows="10"></textarea>
+    <input type="submit" name="postComment<?php echo $post_id; ?>" value ="Post">
 </form>
 
 <!---   Load comments -->
