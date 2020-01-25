@@ -9,6 +9,16 @@
 
 </head>
 <body>
+
+<style type="text/css">
+ *{
+     font-size:12px;
+     font-family:Arial, Helvetica, Sans-serif;
+ }
+
+</style>
+
+
 <?php
 
         require 'config/config.php';
@@ -186,6 +196,11 @@ echo $time_message. "<br>".$comment_body; ?>
 <?php 
 
     }
+}
+else{
+    echo "<center><br><br>No Comments to Show !
+    
+    </center>";
 }
 
 ?>
