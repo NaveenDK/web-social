@@ -1,218 +1,271 @@
 .top_bar {
-    width: 100%;
-    min-width: 1050px;
-    height: 80px;
-    background-color: black;
-    border-bottom: 5px solid black;
-    margin: 0 0 10px 0;
-    display: inline-flex;
-    padding-top: 20px;
-    position: fixed;
-    z-index: 10;
+  width: 100%;
+  min-width: 1050px;
+  height: 80px;
+  background-color: black;
+  border-bottom: 5px solid black;
+  margin: 0 0 10px 0;
+  display: inline-flex;
+  padding-top: 20px;
+  position: fixed;
+  z-index: 10;
 }
 
 .logo {
-    padding-left: 30px;
-    margin-top: 0px;
-    padding-top: 0px;
-    padding-bottom: 20px;
+  padding-left: 30px;
+  margin-top: 0px;
+  padding-top: 0px;
+  padding-bottom: 20px;
 }
 
 a {
-    color: black;
-    text-decoration: none;
+  color: black;
+  text-decoration: none;
 }
 
 nav {
-    float: right;
-    right: 1px;
-    position: absolute;
-    margin: 10;
-    margin-right: 130px;
-    padding-top: 0px;
-    font-size: 27px;
+  float: right;
+  right: 1px;
+  position: absolute;
+  margin: 10;
+  margin-right: 130px;
+  padding-top: 0px;
+  font-size: 27px;
 }
 
 nav a {
-    position: relative;
-    color: #fff;
-    text-decoration: none;
-    font-size: 17px;
-    padding-top: 20px;
-    padding-left: 5px;
-
+  position: relative;
+  color: #fff;
+  text-decoration: none;
+  font-size: 17px;
+  padding-top: 20px;
+  padding-left: 5px;
 }
 
 i.fa {
-    color: #009677;
+  color: #009677;
 }
 
 i.fa:hover {
-    color: white;
-    ;
+  color: white;
 }
 
 .wrapper {
-    margin: 0 auto;
-    top: 110px;
-    position: relative;
-    padding: 0 10px;
-    width: 75%;
-    min-width: 950px;
+  margin: 0 auto;
+  top: 110px;
+  position: relative;
+  padding: 0 10px;
+  width: 75%;
+  min-width: 950px;
 }
 
 .column {
-    background-color: #fff;
-    padding: 10px;
-    border: 1px solid #D3D3D3;
-    border-radius: 5px;
-    box-shadow: 2px 2px 1px #d3d3d3;
-    z-index: -1;
+  background-color: #fff;
+  padding: 10px;
+  border: 1px solid #d3d3d3;
+  border-radius: 5px;
+  box-shadow: 2px 2px 1px #d3d3d3;
+  z-index: -1;
 }
 
 .user_details {
-    width: 250px;
-    float: left;
-    margin-bottom: 20px;
+  width: 250px;
+  float: left;
+  margin-bottom: 20px;
 }
 
 .user_details_left_right {
-    width: 125px;
-    display: inline-block;
-    position: absolute;
-    padding-left: 10px;
-    padding-right: 10px;
+  width: 125px;
+  display: inline-block;
+  position: absolute;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .main_column {
-    float: right;
-    width: 74%;
-    z-index: -1;
-    min-height: 60px;
+  float: right;
+  width: 74%;
+  z-index: -1;
+  min-height: 60px;
 }
 
 .post_form {
-    width: 100%;
+  width: 100%;
 }
 
 .post_form textarea {
-    width: 80%;
-    height: 60px;
-    border-radius: 5px;
-    margin-right: 5px;
-    border: 1px solid #D3D3D3;
-    font-size: 12px;
+  width: 80%;
+  height: 60px;
+  border-radius: 5px;
+  margin-right: 5px;
+  border: 1px solid #d3d3d3;
+  font-size: 12px;
 }
 
 textarea:focus {
-    outline: 0;
+  outline: 0;
 }
 
 .post_form input[type="submit"] {
-    width: 10%;
-    height: 60px;
-    border: none;
-    border-radius: 3px;
-    background-color: black;
-    color: white;
-    text-shadow: #000 0.5px 0.5px 0px;
-    font-size: 90%;
-    position: absolute;
-    outline: 0;
-    margin: 0;
+  width: 10%;
+  height: 60px;
+  border: none;
+  border-radius: 3px;
+  background-color: black;
+  color: white;
+  text-shadow: #000 0.5px 0.5px 0px;
+  font-size: 90%;
+  position: absolute;
+  outline: 0;
+  margin: 0;
 }
 
-
 .post_form input[type="submit"]:active {
-    padding: 5px 4px 5px 4px;
-    background-color: #009677;
+  padding: 5px 4px 5px 4px;
+  background-color: #009677;
 }
 
 .status_post {
-    width: 96%;
-    font-size: 15px;
-    padding: 0 5px;
-    min-height: 75px;
-    cursor: pointer;
+  width: 96%;
+  font-size: 15px;
+  padding: 0 5px;
+  min-height: 75px;
+  cursor: pointer;
 }
 
 .post_profile_pic {
-    float: left;
-    margin-right: 7px;
+  float: left;
+  margin-right: 7px;
 }
 
 .post_profile_pic img {
-    border-radius: 25px;
+  border-radius: 25px;
 }
 
 #comment_iframe {
-    max-height: 250px;
-    width: 100%;
-
+  max-height: 250px;
+  width: 100%;
 }
 
 .comment_section {
-    padding: 0 5px 5px 5px;
+  padding: 0 5px 5px 5px;
 }
 
 .comment_section img {
-    margin: 0 3px 3px 3px;
-    border-radius: 3px;
+  margin: 0 3px 3px 3px;
+  border-radius: 3px;
 }
 
 #comment_form textarea {
-    width: 85%;
-    height: 35px;
-    border-radius: 5px;
-    color: #616060;
-    font-size: 14px;
-    margin: 3px 3px 3px 5px;
-
+  width: 85%;
+  height: 35px;
+  border-radius: 5px;
+  color: #616060;
+  font-size: 14px;
+  margin: 3px 3px 3px 5px;
 }
 
 #comment_form input[type="submit"] {
-    border: none;
-    background-color: black;
-    color: #156588;
-    border-radius: 5px;
-    width: 13%;
-    height: 35px;
-    margin-top: 3px;
-    position: absolute;
-    text-shadow: #000 0.5px 0.5px 0px;
-
+  border: none;
+  background-color: black;
+  color: #156588;
+  border-radius: 5px;
+  width: 13%;
+  height: 35px;
+  margin-top: 3px;
+  position: absolute;
+  text-shadow: #000 0.5px 0.5px 0px;
 }
 
 .newsfeedPostOptions {
-    padding: 0px;
-    text-decoration: none;
-    color: #000000;
-    border: none;
-
+  padding: 0px;
+  text-decoration: none;
+  color: #000000;
+  border: none;
 }
-
 
 .newsfeedPostOptions iframe {
-    border: 0px;
-    height: 17px;
-    width: 120px;
-
+  border: 0px;
+  height: 17px;
+  width: 120px;
 }
 
-
-
 .comment_like {
-    background-color: transparent;
-    border: none;
-    font-size: 14px;
-    color: #009677;
-    padding: 0;
-    height: auto;
-    width: auto;
-    margin: 0;
+  background-color: transparent;
+  border: none;
+  font-size: 14px;
+  color: #009677;
+  padding: 0;
+  height: auto;
+  width: auto;
+  margin: 0;
 }
 
 .like_value {
-    display: inline;
-    font-size: 14px;
+  display: inline;
+  font-size: 14px;
+}
+
+.profile_left {
+  top: -30px;
+  width: 17%;
+  max-width: 240px;
+  min-width: 130px;
+  /*height: 100% !important;*/
+  /* This should work instead of the height:700px */
+  height: 700px;
+  float: left;
+  position: relative;
+  background-color: black;
+  border-right: 10px solid #009677;
+  color: white;
+  margin-right: 20px;
+}
+
+.profile_left img {
+  min-width: 80px;
+  width: 55%;
+  margin: 20px;
+  border: 5px solid brown;
+  border-radius: 100px;
+}
+
+.profile_info {
+  display: list-item;
+  background-color: black;
+  width: 100%;
+  padding: 10px 0 10px 0;
+}
+
+.profile_info p {
+  margin: 0 0 0 20px;
+  word-wrap: break-word;
+}
+
+.danger {
+  background-color: #e74c3c;
+}
+.warning {
+  background-color: red;
+}
+.default {
+  background-color: white;
+}
+.success {
+  background-color: green;
+}
+.info {
+  background-color: blue;
+}
+.deep_blue {
+  background-color: darkblue;
+}
+
+.profile_left input[type="submit"] {
+  width: 90%;
+  height: 30px;
+  border-radius: 5px;
+  margin: 7px 0 0 7px;
+  border: none;
+  color: #fff;
 }
