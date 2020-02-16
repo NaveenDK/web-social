@@ -31,7 +31,7 @@ class Post
 
 
             //If user is on own profie, user_to is 'none'
-            if($user_to = $added_by)
+            if($user_to == $added_by)
             {
                 $user_to = "none";
             }
